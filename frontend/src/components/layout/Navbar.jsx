@@ -10,7 +10,7 @@ export const Navbar = ({ onMenuClick, darkMode, toggleDarkMode, onLogout }) => {
                 </button>
                 <div className="hidden lg:flex items-center space-x-2 text-primary-600">
                   <Terminal size={18} className="animate-pulse" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">Secure HR Intelligence</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">HR Management System</span>
                 </div>
             </div>
             <div className="flex items-center space-x-6">
@@ -39,7 +39,7 @@ export const Navbar = ({ onMenuClick, darkMode, toggleDarkMode, onLogout }) => {
                   <button
                       onClick={onLogout}
                       className="p-3 text-gray-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-all duration-300 rounded-2xl group"
-                      title="Terminate Session"
+                      title="Logout"
                   >
                       <LogOut className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                   </button>

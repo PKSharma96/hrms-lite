@@ -21,7 +21,7 @@ export default function Directory() {
             const res = await staffRegistry.getAll();
             setMembers(res.data);
         } catch (err) {
-            toast.error('Failed to reconstruct registry');
+            toast.error('Failed to fetch employees');
         } finally {
             setLoading(false);
         }
@@ -41,10 +41,10 @@ export default function Directory() {
     };
 
     const handleOffboard = async (id) => {
-        if (window.confirm('Executing offboarding protocol for security token: ' + id + '. Proceed?')) {
+        if (window.confirm('Delete employee record for ID: ' + id + '?')) {
             try {
                 await staffRegistry.terminate(id);
-                toast.success('Personnel record successfully terminated');
+                toast.success('Employee record deleted');
                 fetchRegistry();
             } catch (err) {
                 toast.error('Termination operation failed');
@@ -109,7 +109,7 @@ export default function Directory() {
                     </h3>
                     <form onSubmit={handleOnboard} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
                         <Input
-                            label="Security ID"
+                            label="Employee ID"
                             placeholder="PHR-XXXX"
                             value={formData.reference_id}
                             onChange={(e) => setFormData({ ...formData, reference_id: e.target.value })}
@@ -117,7 +117,7 @@ export default function Directory() {
                             className="rounded-xl border-gray-200 shadow-sm"
                         />
                         <Input
-                            label="Full Identity"
+                            label="Full Name"
                             placeholder="John Smith"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -134,7 +134,7 @@ export default function Directory() {
                             className="rounded-xl border-gray-200 shadow-sm"
                         />
                         <div className="flex flex-col space-y-2">
-                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Assigned Unit</label>
+                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Department</label>
                             <select
                                 className="h-12 w-full rounded-xl border border-gray-200 shadow-sm dark:border-gray-700 bg-white dark:bg-gray-800 px-4 text-xs font-bold focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white"
                                 value={formData.team_unit}
@@ -151,7 +151,7 @@ export default function Directory() {
                         </div>
                         <div className="col-span-full lg:col-span-1">
                             <Button type="submit" className="w-full h-12 rounded-xl text-xs font-black uppercase tracking-widest">
-                                Finalize Enrollment
+                                Register Employee
                             </Button>
                         </div>
                     </form>
@@ -164,7 +164,7 @@ export default function Directory() {
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                         <input
                             type="text"
-                            placeholder="Search by Identity or Security Index..."
+                            placeholder="Search by name or ID..."
                             className="w-full pl-12 pr-4 py-4 text-sm font-medium bg-transparent focus:outline-none dark:text-white"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -177,7 +177,7 @@ export default function Directory() {
                             value={selectedTeam}
                             onChange={(e) => setSelectedTeam(e.target.value)}
                         >
-                            <option value="">All Department</option>
+                            <option value="">All Departments</option>
                             <option value="Executive">Executive</option>
                             <option value="Architecture">Architecture</option>
                             <option value="Operations">Operations</option>
@@ -194,11 +194,11 @@ export default function Directory() {
                         <div className="w-16 h-16 bg-gray-50 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
                             <Search className="text-gray-300" />
                         </div>
-                        <p className="text-sm font-bold text-gray-400">Zero search results found in the encrypted registry.</p>
+                        <p className="text-sm font-bold text-gray-400">No matching employees found.</p>
                     </div>
                 ) : (
                     <Table
-                        headers={['Identity Profile', 'Organizational Unit', 'Performance Metric', 'Control']}
+                        headers={['Employee Details', 'Department', 'Stats', 'Action']}
                         className="text-left"
                     >
                         {filteredRegistry.map((m) => (

@@ -51,14 +51,14 @@ export default function Login({ onLogin, darkMode, toggleDarkMode }) {
                     <h1 className="text-4xl font-black text-gray-900 dark:text-white tracking-tighter uppercase">
                         HRMS <span className="text-primary-600">Lite</span>
                     </h1>
-                    <p className="text-gray-500 font-medium mt-2">Enterprise Attendance Management Gateway</p>
+                    <p className="text-gray-500 font-medium mt-2">Attendance Management System</p>
                 </div>
 
                 <Card className="p-10 rounded-[3rem] shadow-2xl shadow-gray-200/50 dark:shadow-none bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-gray-100 dark:border-gray-900">
                     <div className="mb-8 p-6 bg-primary-50 dark:bg-primary-900/10 border border-primary-100 dark:border-primary-900/20 rounded-3xl">
                         <div className="flex items-center text-[10px] font-black text-primary-600 uppercase tracking-[0.2em] mb-2">
                            <Activity size={14} className="mr-2 animate-pulse" />
-                           System Access Protocol
+                            System Login
                         </div>
                         <p className="text-xs text-gray-500 font-bold leading-relaxed">
                             Use authorized credentials to initialize the attendance environment:
@@ -70,7 +70,7 @@ export default function Login({ onLogin, darkMode, toggleDarkMode }) {
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="space-y-1">
-                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Access Identity</label>
+                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Username</label>
                             <div className="relative group">
                                 <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-primary-500 transition-colors">
                                     <User size={18} />
@@ -87,7 +87,7 @@ export default function Login({ onLogin, darkMode, toggleDarkMode }) {
                         </div>
 
                         <div className="space-y-1">
-                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Secure Key</label>
+                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Password</label>
                             <div className="relative group">
                                 <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-primary-500 transition-colors">
                                     <Lock size={18} />

@@ -82,8 +82,8 @@ export default function TimeLine() {
         <div className="space-y-10 animate-in fade-in slide-in-from-bottom-8 duration-700">
             {/* Header Section */}
             <div>
-                <h1 className="text-4xl font-black text-gray-900 dark:text-white tracking-tighter uppercase italic">Registry <span className="text-primary-600">Dynamics</span></h1>
-                <p className="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] mt-1">Personnel Presence Intelligence Flow</p>
+                <h1 className="text-4xl font-black text-gray-900 dark:text-white tracking-tighter uppercase italic">Attendance <span className="text-primary-600">Logs</span></h1>
+                <p className="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] mt-1">Track and manage daily attendance</p>
             </div>
 
             {/* Quick Stats Grid */}
@@ -94,7 +94,7 @@ export default function TimeLine() {
                     </div>
                     <div>
                         <h4 className="text-3xl font-black text-gray-900 dark:text-white leading-none">{stats.total}</h4>
-                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">Log Volume</p>
+                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">Total Logs</p>
                     </div>
                 </Card>
                 <Card className="p-8 border-none shadow-xl shadow-gray-100/50 dark:shadow-none bg-white dark:bg-gray-950 flex items-center group">
@@ -103,7 +103,7 @@ export default function TimeLine() {
                     </div>
                     <div>
                         <h4 className="text-3xl font-black text-gray-900 dark:text-white leading-none">{stats.present}</h4>
-                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">Verified Active</p>
+                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">Present</p>
                     </div>
                 </Card>
                 <Card className="p-8 border-none shadow-xl shadow-gray-100/50 dark:shadow-none bg-white dark:bg-gray-950 flex items-center group">
@@ -112,7 +112,7 @@ export default function TimeLine() {
                     </div>
                     <div>
                         <h4 className="text-3xl font-black text-gray-900 dark:text-white leading-none">{stats.absent}</h4>
-                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">Idle Registered</p>
+                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">Absent</p>
                     </div>
                 </Card>
             </div>
@@ -122,7 +122,7 @@ export default function TimeLine() {
                 <div className="p-8 border-b border-gray-50 dark:border-gray-900 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-gray-50/30 dark:bg-gray-900/30">
                     <div className="flex items-center">
                         <Activity className="w-5 h-5 text-primary-600 mr-3 animate-pulse" />
-                        <h3 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase">Intelligence Records</h3>
+                        <h3 className="text-lg font-black text-gray-900 dark:text-white tracking-tight uppercase">Recent Logs</h3>
                     </div>
                     <Button
                         onClick={() => setShowMarkForm(!showMarkForm)}
@@ -141,7 +141,7 @@ export default function TimeLine() {
                     <div className="p-8 border-b border-gray-50 dark:border-gray-900 bg-primary-50/20 dark:bg-primary-900/5 animate-in slide-in-from-top-4 duration-500">
                         <form onSubmit={handleMarkAttendance} className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
                             <div className="flex flex-col space-y-2">
-                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1">Target Personnel</label>
+                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1">Select Employee</label>
                                 <select
                                     className="h-14 w-full bg-white dark:bg-gray-900 border-2 border-white dark:border-gray-800 rounded-2xl px-4 text-xs font-black shadow-sm focus:border-primary-500 transition-all outline-none dark:text-white"
                                     value={markData.reference_id}
@@ -155,7 +155,7 @@ export default function TimeLine() {
                                 </select>
                             </div>
                             <div className="flex flex-col space-y-2">
-                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1">Log Date</label>
+                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1">Date</label>
                                 <input
                                     type="date"
                                     className="h-14 w-full bg-white dark:bg-gray-900 border-2 border-white dark:border-gray-800 rounded-2xl px-4 text-xs font-black shadow-sm focus:border-primary-500 transition-all outline-none dark:text-white uppercase"
@@ -165,7 +165,7 @@ export default function TimeLine() {
                                 />
                             </div>
                             <div className="flex flex-col space-y-2">
-                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1">Presence Key</label>
+                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1">Status</label>
                                 <div className="flex bg-white dark:bg-gray-900 p-1 rounded-2xl border-2 border-white dark:border-gray-800 shadow-sm">
                                     <button
                                         type="button"
@@ -193,7 +193,7 @@ export default function TimeLine() {
                 {/* Filters Bar */}
                 <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-6 bg-gray-50/10 dark:bg-gray-900/10 border-b border-gray-50 dark:border-gray-900">
                     <div className="flex flex-col space-y-2">
-                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1 ml-1">Identity Filter</label>
+                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest px-1 ml-1">Employee ID</label>
                         <select
                             className="h-12 w-full bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl px-4 text-[10px] font-black text-gray-600 dark:text-gray-300 outline-none focus:ring-2 focus:ring-primary-500/20 transition-all uppercase"
                             value={filterEmployee}
@@ -230,14 +230,14 @@ export default function TimeLine() {
                     {loading ? (
                         <GlobalLoader className="bg-transparent backdrop-blur-none flex-1" />
                     ) : (
-                        <Table headers={['Operational Date', 'Reference ID', 'Identity Name', 'Status Integrity']} className="text-left w-full border-collapse">
+                        <Table headers={['Date', 'Employee ID', 'Employee Name', 'Status']} className="text-left w-full border-collapse">
                             {filteredLogs.length === 0 ? (
                                 <tr>
                                     <td colSpan="4" className="py-24 text-center">
                                         <div className="w-16 h-16 bg-gray-50 dark:bg-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                             <Clock className="text-gray-300 dark:text-gray-700 w-8 h-8" />
                                         </div>
-                                        <p className="text-xs font-black text-gray-400 uppercase tracking-widest">No Intelligence Records Found</p>
+                                        <p className="text-xs font-black text-gray-400 uppercase tracking-widest">No Logs Found</p>
                                     </td>
                                 </tr>
                             ) : (

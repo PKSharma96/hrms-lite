@@ -54,7 +54,7 @@ export default function Analytics({ setActiveTab, navigateToDirectory }) {
                     </div>
                     <h1 className="text-4xl font-black text-gray-900 dark:text-white tracking-tighter">Attendance <span className="text-primary-600">Analytics</span></h1>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 font-medium">
-                        Real-time attendance dynamics for <span className="text-gray-900 dark:text-gray-200 font-bold underline decoration-primary-500 decoration-2">{selectedDate}</span>
+                        Daily attendance overview for <span className="text-gray-900 dark:text-gray-200 font-bold underline decoration-primary-500 decoration-2">{selectedDate}</span>
                     </p>
                 </div>
                 {/* <div className="flex items-center bg-white dark:bg-gray-900 p-1 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
@@ -73,7 +73,7 @@ export default function Analytics({ setActiveTab, navigateToDirectory }) {
                 <>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <MetricCard
-                            title="Total Staff"
+                            title="Total Employees"
                             value={stats.staff_count}
                             icon={Users}
                             color="bg-indigo-600"
@@ -99,8 +99,8 @@ export default function Analytics({ setActiveTab, navigateToDirectory }) {
                         <Card className="lg:col-span-2 p-8 border-gray-100 dark:border-gray-800 relative overflow-hidden group">
                             <div className="flex items-center justify-between mb-8">
                                 <div>
-                                    <h3 className="text-xl font-black text-gray-900 dark:text-white tracking-tight">Trend Visualization</h3>
-                                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Weekly Workforce Engagement</p>
+                                    <h3 className="text-xl font-black text-gray-900 dark:text-white tracking-tight">Attendance Trend</h3>
+                                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Weekly Trend</p>
                                 </div>
                                 <Activity className="text-primary-600 animate-pulse" size={20} />
                             </div>
@@ -122,7 +122,7 @@ export default function Analytics({ setActiveTab, navigateToDirectory }) {
                                                 style={{ height: `${item.val}%` }}
                                             >
                                                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] font-black px-2 py-1 rounded-lg opacity-0 group-hover/bar:opacity-100 transition-opacity whitespace-nowrap z-20">
-                                                    {item.val}% Engagement
+                                                    {item.val}% Attendance
                                                 </div>
                                             </div>
                                         </div>
@@ -134,11 +134,11 @@ export default function Analytics({ setActiveTab, navigateToDirectory }) {
                             <div className="mt-8 pt-6 border-t border-gray-50 dark:border-gray-900 grid grid-cols-2 gap-4">
                                 <div className="flex items-center space-x-3">
                                     <div className="w-2.5 h-2.5 rounded-full bg-primary-600 shadow-sm"></div>
-                                    <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Active Intelligence</span>
+                                     <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Present</span>
                                 </div>
                                 <div className="flex items-center space-x-3">
                                     <div className="w-2.5 h-2.5 rounded-full bg-indigo-200 shadow-sm"></div>
-                                    <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Off-Cycle Period</span>
+                                     <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Weekend</span>
                                 </div>
                             </div>
                         </Card>
@@ -147,8 +147,8 @@ export default function Analytics({ setActiveTab, navigateToDirectory }) {
                             <div className="absolute top-0 right-0 p-4 opacity-10">
                                 <Rocket size={100} />
                             </div>
-                            <h3 className="text-xl font-black mb-2 tracking-tight uppercase">Quick Deployment</h3>
-                            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-8 leading-relaxed">Execute primary operations with one-click automated routing.</p>
+                            <h3 className="text-xl font-black mb-2 tracking-tight uppercase">Quick Actions</h3>
+                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-8 leading-relaxed">Manage your employees and logs quickly.</p>
                             <div className="space-y-4 relative z-10">
                                 <NavLink
                                     to="/directory"
