@@ -18,7 +18,11 @@ export default function TimeLine() {
     const [filterTo, setFilterTo] = useState('');
 
     // New Log Form
-    const [markData, setMarkData] = useState({ reference_id: '', status: 'Present', date: new Date().toISOString().split('T')[0] });
+    const [markData, setMarkData] = useState(() => {
+        const d = new Date();
+        const dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+        return { reference_id: '', status: 'Present', date: dateStr };
+    });
     const [markLoading, setMarkLoading] = useState(false);
 
     useEffect(() => {

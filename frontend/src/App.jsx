@@ -87,6 +87,7 @@ function App() {
               <Sidebar 
                 className="w-full h-full border-none" 
                 onLinkClick={() => setMobileMenuOpen(false)} 
+                onClose={() => setMobileMenuOpen(false)}
               />
             </div>
           </div>

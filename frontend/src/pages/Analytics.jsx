@@ -30,7 +30,10 @@ const MetricCard = ({ title, value, icon: Icon, color, trend }) => (
 export default function Analytics({ setActiveTab, navigateToDirectory }) {
     const [stats, setStats] = useState({ staff_count: 0, active_today: 0, inactive_today: 0 });
     const [loading, setLoading] = useState(true);
-    const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+    const [selectedDate, setSelectedDate] = useState(() => {
+        const d = new Date();
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    });
 
     useEffect(() => {
         fetchData(selectedDate);

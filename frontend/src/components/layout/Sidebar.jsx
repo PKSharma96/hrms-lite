@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Users, Clock, BarChart3, ShieldCheck } from 'lucide-react';
+import { Users, Clock, BarChart3, ShieldCheck, X } from 'lucide-react';
 import { cn } from '../ui';
 
 const SidebarItem = ({ icon: Icon, label, to, onClick }) => (
@@ -26,7 +26,7 @@ const SidebarItem = ({ icon: Icon, label, to, onClick }) => (
     </NavLink>
 );
 
-export const Sidebar = ({ onLinkClick, className }) => {
+export const Sidebar = ({ onLinkClick, className, onClose }) => {
     const items = [
         { path: '/dashboard', label: 'Dashboard', icon: BarChart3 },
         { path: '/directory', label: 'Employee Registry', icon: Users },
@@ -36,13 +36,23 @@ export const Sidebar = ({ onLinkClick, className }) => {
     return (
         <aside className={cn("bg-white dark:bg-gray-950 border-r border-gray-100 dark:border-gray-900", className)}>
             <div className="flex flex-col h-full">
-                <div className="flex items-center px-8 h-20 border-b border-gray-50 dark:border-gray-900">
-                    <div className="p-2.5 bg-primary-600 rounded-xl mr-3 shadow-lg shadow-primary-500/20">
-                        <ShieldCheck className="w-6 h-6 text-white" />
+                <div className="flex items-center justify-between px-8 h-20 border-b border-gray-50 dark:border-gray-900">
+                    <div className="flex items-center">
+                        <div className="p-2.5 bg-primary-600 rounded-xl mr-3 shadow-lg shadow-primary-500/20">
+                            <ShieldCheck className="w-6 h-6 text-white" />
+                        </div>
+                        <span className="text-xl font-black tracking-tight text-gray-900 dark:text-white uppercase">
+                            HRMS <span className="text-primary-600">Lite</span>
+                        </span>
                     </div>
-                    <span className="text-xl font-black tracking-tight text-gray-900 dark:text-white uppercase">
-                        HRMS <span className="text-primary-600">Lite</span>
-                    </span>
+                    {onClose && (
+                        <button 
+                            onClick={onClose}
+                            className="lg:hidden p-2 text-gray-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-xl transition-all"
+                        >
+                            <X size={20} />
+                        </button>
+                    )}
                 </div>
 
                 <div className="px-6 py-10">
