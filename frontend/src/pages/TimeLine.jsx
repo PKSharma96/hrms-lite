@@ -52,6 +52,14 @@ export default function TimeLine() {
 
     const handleMarkAttendance = async (e) => {
         e.preventDefault();
+        
+        // Basic Validation Implementation
+        const { reference_id, date, status } = markData;
+        
+        if (!reference_id) return toast.error('Please select an Employee');
+        if (!date) return toast.error('Please select a Date');
+        if (!status) return toast.error('Status missing: Please toggle In/Out');
+
         setMarkLoading(true);
         try {
             await activityMonitor.logEntry({
@@ -59,7 +67,7 @@ export default function TimeLine() {
                 logged_date: markData.date,
                 presence_status: markData.status
             });
-            toast.success(`Presence authenticated for ${markData.reference_id}`);
+            toast.success(`Attendance marked for ${markData.reference_id}`);
             setShowMarkForm(false);
             fetchInitialData();
         } catch (err) {

@@ -29,6 +29,19 @@ export default function Directory() {
 
     const handleOnboard = async (e) => {
         e.preventDefault();
+        
+        // Basic Validation Implementation
+        const { reference_id, name, contact_email, team_unit } = formData;
+        
+        if (!reference_id.trim()) return toast.error('Employee ID is required');
+        if (!name.trim()) return toast.error('Full Name is required');
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!contact_email.trim()) return toast.error('Email is required');
+        if (!emailRegex.test(contact_email)) return toast.error('Please enter a valid email address');
+        
+        if (!team_unit) return toast.error('Please select a Department');
+
         try {
             await staffRegistry.enroll(formData);
             setFormData({ reference_id: '', name: '', contact_email: '', team_unit: '' });
