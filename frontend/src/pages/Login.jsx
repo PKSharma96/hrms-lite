@@ -57,20 +57,20 @@ export default function Login({ onLogin, darkMode, toggleDarkMode }) {
                 <Card className="p-10 rounded-[3rem] shadow-2xl shadow-gray-200/50 dark:shadow-none bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-gray-100 dark:border-gray-900">
                     <div className="mb-8 p-6 bg-primary-50 dark:bg-primary-900/10 border border-primary-100 dark:border-primary-900/20 rounded-3xl">
                         <div className="flex items-center text-[10px] font-black text-primary-600 uppercase tracking-[0.2em] mb-2">
-                           <Activity size={14} className="mr-2 animate-pulse" />
+                            <Activity size={14} className="mr-2 animate-pulse" />
                             System Login
                         </div>
                         <p className="text-xs text-gray-500 font-bold leading-relaxed">
                             Use authorized credentials to initialize the attendance environment:
                             <span className="block mt-2 text-primary-600 dark:text-primary-400 font-black">
-                                ID: Admin / KEY: 12345
+                                USERNAME: Admin / PASSWORD: 12345
                             </span>
                         </p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="space-y-1">
-                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Username</label>
+                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Username</label>
                             <div className="relative group">
                                 <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-primary-500 transition-colors">
                                     <User size={18} />
@@ -87,7 +87,7 @@ export default function Login({ onLogin, darkMode, toggleDarkMode }) {
                         </div>
 
                         <div className="space-y-1">
-                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Password</label>
+                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] ml-2">Password</label>
                             <div className="relative group">
                                 <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-primary-500 transition-colors">
                                     <Lock size={18} />
