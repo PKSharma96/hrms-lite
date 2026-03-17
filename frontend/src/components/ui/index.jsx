@@ -42,7 +42,7 @@ export const Input = React.forwardRef(({ className, label, error, ...props }, re
             <input
                 ref={ref}
                 className={cn(
-                    'flex h-12 w-full rounded-2xl border-2 border-gray-100 bg-white px-4 py-2 text-sm font-medium transition-all duration-300 placeholder:text-gray-300 focus:border-primary-500 focus:bg-white focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-950 dark:border-gray-800 dark:text-white dark:placeholder:text-gray-600 dark:focus:border-primary-500',
+                    'flex h-12 w-full rounded-2xl border-2 border-gray-100 bg-white px-4 py-2 text-sm font-medium transition-all duration-300 placeholder:text-gray-300 focus:border-primary-500 focus:bg-white dark:focus:bg-gray-900 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-950 dark:border-gray-800 dark:text-white dark:placeholder:text-gray-600 dark:focus:border-primary-500',
                     error && 'border-rose-500 focus:border-rose-500',
                     className
                 )}

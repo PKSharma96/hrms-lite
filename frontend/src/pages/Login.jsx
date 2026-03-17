@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ShieldCheck, User, Lock, ArrowRight, Activity } from 'lucide-react';
+import { ShieldCheck, User, Lock, ArrowRight, Activity, Sun, Moon } from 'lucide-react';
 import { Card } from '../components/ui';
 import toast from 'react-hot-toast';
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, darkMode, toggleDarkMode }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -25,7 +25,20 @@ export default function Login({ onLogin }) {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col justify-center items-center p-6 relative overflow-hidden">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col justify-center items-center p-6 relative overflow-hidden transition-colors duration-500">
+            {/* Theme Toggle Button */}
+            <div className="absolute top-8 right-8 z-50">
+                <button
+                    onClick={toggleDarkMode}
+                    className="p-4 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-gray-100 dark:border-gray-800 shadow-xl hover:scale-110 transition-all duration-300 group"
+                >
+                    {darkMode ? (
+                        <Sun className="text-amber-400 group-hover:rotate-90 transition-transform duration-500" size={24} />
+                    ) : (
+                        <Moon className="text-primary-600 group-hover:-rotate-12 transition-transform duration-500" size={24} />
+                    )}
+                </button>
+            </div>
             {/* Background elements */}
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-600/5 rounded-full blur-[120px]"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-600/5 rounded-full blur-[120px]"></div>
@@ -66,7 +79,7 @@ export default function Login({ onLogin }) {
                                     type="text"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
-                                    className="w-full h-14 pl-12 pr-6 rounded-2xl border-2 border-gray-50 bg-gray-50/50 dark:bg-gray-900 dark:border-gray-800 dark:text-white focus:border-primary-500 focus:bg-white transition-all outline-none font-bold text-sm"
+                                    className="w-full h-14 pl-12 pr-6 rounded-2xl border-2 border-gray-50 bg-gray-50/50 dark:bg-gray-900 dark:border-gray-800 dark:text-white focus:border-primary-500 focus:bg-white dark:focus:bg-gray-800 transition-all outline-none font-bold text-sm"
                                     placeholder="Username"
                                     required
                                 />
@@ -83,7 +96,7 @@ export default function Login({ onLogin }) {
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full h-14 pl-12 pr-6 rounded-2xl border-2 border-gray-50 bg-gray-50/50 dark:bg-gray-900 dark:border-gray-800 dark:text-white focus:border-primary-500 focus:bg-white transition-all outline-none font-bold text-sm"
+                                    className="w-full h-14 pl-12 pr-6 rounded-2xl border-2 border-gray-50 bg-gray-50/50 dark:bg-gray-900 dark:border-gray-800 dark:text-white focus:border-primary-500 focus:bg-white dark:focus:bg-gray-800 transition-all outline-none font-bold text-sm"
                                     placeholder="Password"
                                     required
                                 />

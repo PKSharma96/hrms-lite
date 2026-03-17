@@ -18,8 +18,7 @@ function App() {
   const [isGlobalLoading, setIsGlobalLoading] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark' ||
-      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    return localStorage.getItem('theme') === 'dark';
   });
 
   useEffect(() => {
@@ -62,7 +61,7 @@ function App() {
         <Toaster position="top-right" toastOptions={{ duration: 4000, style: { background: '#111827', color: '#fff', borderRadius: '1rem', border: '1px solid #1f2937' } }} />
         {isGlobalLoading && <GlobalLoader />}
         <Routes>
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
